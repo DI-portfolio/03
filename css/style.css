@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+/* ===== 全体 =====*/
+* {
+    box-sizing: border-box;
+}
+button, input {
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+body {
+    background: #c5f878;
+}
+.hyakuninissyu {
+    width: 100%;
+    min-width: 1360px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+}
+/* ===== ロゴ・タイトル ===== */
+.hyakuninissyu::before {
+    content: '百人一首暗記アプリ(十首のみ)';
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    width: 400px;
+    display: block;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #333;
+    text-shadow: 2px -1px #eee;
+    border-radius: 4px;
+    z-index: 1;
+}
+.hyakuninissyu img {
+    position: absolute;
+    top: -8px;
+    left: 15px;
+    width: 100px;
+    opacity: 0.4;
+}
+
+/*===== リロードボタンと次の一首へボタン ===== */
+.start-reload {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.startBtn-position input, .reloadBtn-position input {
+    background: #333;
+    color: #fff;
+}
+.startBtn-position input:hover, .reloadBtn-position input:hover {
+    background: #eee;
+    color: #000;
+}
+
+/* === 次の一首へボタン === */
+.startBtn-position {
+    text-align: left;
+    margin: 0 300px 0 400px;
+}
+.start {
+    width: 250px;
+    height: 50px;
+}
+
+/* === リロードボタン === */
+.reloadBtn-position {
+    text-align: right;
+    margin-left: 20px;
+}
+.reload {
+    width: 200px;
+    height: 40px;
+}
+
+/* ===== 句表示・問題文 ===== */
+.question {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 30px auto 0;
+}
+.questionText {
+    position: relative;
+}
+.questionText::before {
+    content: '右の一首の下の句を左の選択肢から選んでください';
+    position: absolute;
+    right: -80px;
+    bottom: 10px;
+    width: 500px;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+#text {
+    background-image: url(../img/bi-washi-white.jpg);
+    display: inline-block;
+    margin: 0 100px 0 50px;
+    padding: 20px;
+    text-align: left;
+    line-height: 2rem; 
+    writing-mode: vertical-rl;
+    color: #000;
+    border: 5px solid #f5d109;
+    border-radius: 4px;
+}
+#topText, #bottomText {
+    width: 30px;
+    font-size: 1.3rem;
+}
+#topText {
+    height: 400px;
+}
+#bottomText {
+    height: 350px;
+    margin-right: 20px;
+    border: 1px dashed #000;
+}
+#bottomText.borderDel {
+    border: none;
+}
+#author {
+    width: 30px;
+    height: 395px;
+    font-size: 1.3rem;
+    text-align: right;
+    margin-right: 40px;
+}
+
+/* ===== 句フェイドインアニメ ===== */
+#text.textAnime {
+    animation-name: anime;
+    animation-duration: 5s;
+    animation-fill-mode: backwards;
+}
+@keyframes anime {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+/* ===== 選択肢 ===== */
+.btn::before {
+    content: '・';
+}
+#btn-form {
+    margin: 30px auto;
+}
+#btn-form.textAnime {
+    animation-name: anime;
+    animation-duration: 3s;
+    animation-fill-mode: backwards; 
+}
+.btn {
+    display: block;
+    writing-mode: vertical-rl;
+    text-align: left;
+    line-height: 40px;
+    width: 40px;
+    height: 380px;
+    padding: 10px 0;
+    font-size: 1.3rem;
+    background: none;
+    color: #000;
+}
+.btn:hover {
+    color: #999;
+}
+
+/* ===== 正解・不正解・終了表示 ===== */
+/* === 正解 === */
+#sign.correct {
+    position: relative;
+}
+#sign.correct::before {
+    content: 'お見事！';
+    position: absolute;
+    top: 70px;
+    right: 320px;
+    width: 100px;
+    color: #f00;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+#sign.correct::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 250px;
+    width: 70px;
+    height: 70px;
+    border: 6px solid #f00;
+    border-radius: 50%;
+}
+
+/* === 不正解 === */
+#sign.incorrect {
+    position: relative;
+}
+#sign.incorrect::before {
+    content: '残念！お手付き！';
+    position: absolute;
+    top: 70px;
+    right: 320px;
+    width: 200px;
+    color: #00f;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+/* === 終了 === */
+#sign.end {
+    position: relative;
+}
+#sign.end::before {
+    content: '終了です！';
+    position: absolute;
+    top: 200px;
+    right: 300px;
+    width: 200px;
+    color: #000;
+    font-size: 1.5rem;
+    z-index: 1;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百人一首暗記アプリ</title>
+    <link rel="shortcut icon" href="img/favicon-hyaku.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="hyakuninissyu">
+        <div class="start-reload">
+            <figure><!-- ロゴ -->
+                <img src="img/ononokomachi-200px.png" alt="">
+            </figure>
+            <div class="startBtn-position"><!-- 次の一首へボタン -->
+                <form action="#" id="startButton">
+                    <input type="submit" class="start" value="次の一首へ">
+                </form>
+            </div>
+            <div class="reloadBtn-position"><!-- 最初からボタン -->
+                <form action="index.html" id="reloadButton">
+                    <input type="submit" class="reload" value="最初から">
+                </form>    
+            </div>
+        </div>
+        <div class="question">
+            <div id="btn-form"><!-- 下句選択肢 -->
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+                <button type="button"><span class="btn"></span></button>
+            </div>
+            <div class="questionText"></div><!-- 問題文 -->
+            <div id="text"><!-- 句表示 -->
+                <p class="para" id="topText"></p>
+                <p class="para" id="bottomText"></p>
+                <p id="author"></p>
+            </div>
+            <div id="sign"></div><!-- 正解・不正解・終了表示 -->
+        </div>
+    </section>
+    <script src="js/text.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
